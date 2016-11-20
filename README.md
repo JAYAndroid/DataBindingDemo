@@ -227,6 +227,13 @@ Button通过lambda表达式引用:
 | 属性访问       | Field access |
 | 数组访问       | Array access |
 | 三元运算符     |  	?:      |<br />
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |<br />
+
 同时要注意，表达式中不支持的有：This 、new、super。
 <br />【高级绑定——双向绑定】
 双向绑定指的是，在某处改变了属性的值，其他用到这个属性值的地方，也会同步更新。双向绑定的符号是 @=，如下：
