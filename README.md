@@ -212,7 +212,7 @@ Button通过lambda表达式引用:
     android:visibility="@{user.adult ? View.VISIBLE : View.GONE}" />
 以上使用到了三元运算符表达式。
 表达式中支持的操作符有：<br />
-
+       名称    |     符号
 ---------------|--------------
 数字运算符     | + - / * %
 字符串连接符   | +
