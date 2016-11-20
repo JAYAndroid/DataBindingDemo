@@ -228,8 +228,6 @@ Button通过lambda表达式引用:
 | 数组访问       | Array access |
 | 三元运算符     |  	?:      |<br />
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
 | col 3 is      | right-aligned | $1600 |
 | col 2 is      | centered      |   $12 |
 | zebra stripes | are neat      |    $1 |<br />
