@@ -11,7 +11,7 @@ https://github.com/JAYAndroid/DataBindingDemo.git
     	enabled true;
 	}
 }
-【布局差异】
+<br />【布局差异】
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 <data>
@@ -27,21 +27,21 @@ https://github.com/JAYAndroid/DataBindingDemo.git
 
 
 可以看出，使用了DataBinding的xml布局，根元素变成了<layout>，里面的<data>嵌套了<variable>，用于声明传递进来的Object变量名和类型。此外还可以使用<import>导入Object，就像在java代码中import一样。如果出现导入的多个Object具有相同的名称，则可以通过alias属性设置别名。如上，otherName也可以代表android.view.View。
-【类名自动生成规则】
+<br />【类名自动生成规则】
 每个支持DataBinding的xml对应一个自动生成的Binding类。生成规则是，xml布局文件名称去掉下划线，根据驼峰标识，再加上Binding。如content_main.xml对应ContentMainBinding.java。当然如果需要自定义类名，可以在<data>标签上设置class属性值，如：
 
 <!--注意，name和其他布局里面的name不能一样, 用class自定义生成的Binding classes 类名，也可
 以使用全路径名来指定生成类存放的位置-->
 <data class="CustomClassName">
 
-【绑定xml和Activity】
+<br />【绑定xml和Activity】
 只需一行代码就可以绑定。通过调用DataBindingUtil的setContentView获取自动生成DataBinding类。
   CustomClassName viewDataBinding = DataBindingUtil.setContentView(this, R.layout.content_main);
 
 
 
 
-【不用findViewById】
+<br />【不用findViewById】
 布局里有个TextView控件，id是tv_no_find_biew_by_id，
 <TextView
     android:id="@+id/tv_no_find_biew_by_id"
@@ -52,7 +52,7 @@ https://github.com/JAYAndroid/DataBindingDemo.git
     tools:text="不用 findviewbyid 了" />
 可通过viewDataBinding对它进行访问操作。
 viewDataBinding.tvNoFindBiewById.setText("不用执行 findViewById 了");
-【绑定Object】
+<br />【绑定Object】
 创建一个JavaBean 类User，注意需要提供getXXX。如果当User的属性name变化了需要实时更新UI，那么User需要extends BaseObservable，并且在getName增加@Bindable，在setName调用
 notifyPropertyChanged(BR.name)。
 public class User extends BaseObservable{
@@ -87,9 +87,9 @@ public class User extends BaseObservable{
 mUser = new User("小明", "33", true);
 viewDataBinding.setUser(mUser);
 调用了以上代码后，就可以在xml中获取user的name值了。
-【绑定点击事件】
+<br />【绑定点击事件】
 点击事件的绑定有两种方式：
-① Method References
+<br />① Method References
 声明事件处理类：
 public class FirstClickHandle {
 
@@ -119,7 +119,7 @@ Button方法引用：
 最后记得FirstClickHandle和ViewDataBinding绑定：
 FirstClickHandle firstClickHandle = new FirstClickHandle();
 viewDataBinding.setFirstClickHandler(firstClickHandle);
-② Listener Bindings
+<br />② Listener Bindings
 该方法的实现依赖lambda 表达式，可以灵活的指定函数的参数，函数的签名不需要和来的 Listener 函数签名一致，但是返回值必须一样，除非返回值是void。
 声明事件处理类：
 public class SecondClickHandle {
@@ -148,8 +148,8 @@ Button通过lambda表达式引用:
 最后，别忘了添加如下的代码：
  SecondClickHandle secondClickHandle = new SecondClickHandle();
  viewDataBinding.setSecondClickHnalder(secondClickHandle);
-说明：lambda 表达式支持从xml回传参数到调用者。此次的theView代表原始方法onClick(View view)中的view，名称可自定义。
-【绑定数据到子布局】
+<br />说明：lambda 表达式支持从xml回传参数到调用者。此次的theView代表原始方法onClick(View view)中的view，名称可自定义。
+<br />【绑定数据到子布局】
 首先声明命名空间bind：
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:bind="http://schemas.android.com/apk/res-auto"
@@ -165,13 +165,13 @@ Button通过lambda表达式引用:
             name="child"
             type="com.example.jay.databindingdemo.User" />
     </data>
-注：① 使用了bind的include的父标签不能是<merge>，如下所示是错误的：
+<br />注：① 使用了bind的include的父标签不能是<merge>，如下所示是错误的：
 <merge>
     <include layout="@layout/name"
         bind:user="@{user}"/>
 </merge>
-② 子布局中的variable的name必须和父布局中bind:xxx的xxx一致，如上面父布局的xxx是child，所以子布局中的name也是child。
-【自动更新UI】
+<br />② 子布局中的variable的name必须和父布局中bind:xxx的xxx一致，如上面父布局的xxx是child，所以子布局中的name也是child。
+<br />【自动更新UI】
 用来显示User.name 的TextView控件，如果name值发生变化，DataBinding支持动态更新UI，而且开发者无需关系UI线程切换问题。
 首先，在User中的getName上增加@Bindable，并且在setName中设置完name值后，调用notifyPropertyChanged(BR.name)。前提是User extends BaseObservable。
  @Bindable
@@ -202,7 +202,7 @@ Button通过lambda表达式引用:
 
             mUser.setName(s.toString());
         }
-【支持使用表达式】
+<br />【支持使用表达式】
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -212,22 +212,22 @@ Button通过lambda表达式引用:
     android:visibility="@{user.adult ? View.VISIBLE : View.GONE}" />
 以上使用到了三元运算符表达式。
 表达式中支持的操作符有：
-数字运算符	+ - / * %
-字符串连接符	+
-逻辑运算符	&& ||
-二进制位操作符	& | ^
-一元运算符	+ - ! ~
-位移操作符	 >> >>> <<
-比较运算符	 == > < >= <=
-实例运算符	instanceof
-集合操作	Grouping ()
-实例强制转换	Cast
-方法调用	Method calls
-属性访问	Field access
-数组访问	Array access [
-三元运算符	?:
+| 数字运算符 | + - / * % |
+| 字符串连接符	| + |
+| 逻辑运算符 | 	&& || |
+| 二进制位操作符 | 	& | ^ |
+| 一元运算符 | 	+ - ! ~ |
+| 位移操作符 | 	 >> >>> << |
+| 比较运算符 | 	 == > < >= <= |
+| 实例运算符 | 	instanceof |
+| 集合操作 | 	Grouping () |
+| 实例强制转换 | 	Cast |
+| 方法调用 | 	Method calls |
+| 属性访问 | 	Field access |
+| 数组访问 | 	Array access [] |
+| 三元运算符 | 	?: |
 同时要注意，表达式中不支持的有：This 、new、super。
-【高级绑定——双向绑定】
+<br />【高级绑定——双向绑定】
 双向绑定指的是，在某处改变了属性的值，其他用到这个属性值的地方，也会同步更新。双向绑定的符号是 @=，如下：
 <EditText
     android:layout_width="match_parent"
@@ -243,7 +243,7 @@ Button通过lambda表达式引用:
 当用户在EditText输入内容时，TextView的内容会实时更新。
 注：User的getAge需要加上@Bindable，并且在setAge里调用notifyPropertyChanged(BR.age)。
 
-【高级绑定——Adapter】
+<br />【高级绑定——Adapter】
 DataBinding除了支持Event Binding、Data Object Binding，还支持Dynamic Variables（暂且翻译成动态变量绑定）。如在RecyclerView.Adapter中的onBindViewHolder。
 首先，声明DataBindingViewHolder，让它继承RecyclerView.ViewHolder：并提供getBinding方法
 public class DataBindingViewHolder<T extends ViewDataBinding> extends RecyclerView.ViewHolder {
@@ -274,7 +274,7 @@ public void onBindViewHolder(DataBindingViewHolder holder, int position) {
     holder.getBinding().executePendingBindings();
 }
 说明：onCreateViewHolder中，通过DataBindingUtil.inflate指定需要绑定的xml布局。在onBindViewHolder中，通过setVariable绑定数据到动态变量，并通过调用executePendingBindings来强制实时更新UI。
-【总结】
+<br />【总结】
 DataBinding带来便利的同时，如果在xml过度使用DataBinding，会降低xml的可读性。同时需要注意表达式不要过于复杂，分清xml和Java的分界。
 本文对DataBinding的内容进行了取舍，有些特性没有讲解到，如自定义属性、表达式连、动画等。感兴趣的朋友们，请自行查阅资料学习（建议参考官方开发者文档进行学习！）
 
