@@ -1,8 +1,8 @@
-【前言】
+【前言】<br />
 DataBinding是 google在2015年I/O大会上推出的一个数据绑定框架。提高了开发者的开发效率，具有高性能、工功能强等特点。DataBinding是基于MVVM模式，保证了xml中的数据唯一来源为ViewModel，去掉了Activity和Fragment中大部分UI相关代码，减少了findViewById的调用，保证UI更新执行在主线程。
-【项目源码】
+<br />【项目源码】
 https://github.com/JAYAndroid/DataBindingDemo.git
-【环境构建】
+<br />【环境构建】
  Data Binding Library兼容到了Android2.1版本。要求Gradle版本不低于1.5， Android Studio至少1.3。
 要使用DataBinding，需要在项目model的 build.gradle里加上如下设置:
    android{
