@@ -1,4 +1,3 @@
-DataBinding 完整使用介绍篇
 【前言】
 DataBinding是 google在2015年I/O大会上推出的一个数据绑定框架。提高了开发者的开发效率，具有高性能、工功能强等特点。DataBinding是基于MVVM模式，保证了xml中的数据唯一来源为ViewModel，去掉了Activity和Fragment中大部分UI相关代码，减少了findViewById的调用，保证UI更新执行在主线程。
 【项目源码】
