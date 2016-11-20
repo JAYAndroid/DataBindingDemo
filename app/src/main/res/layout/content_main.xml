@@ -54,6 +54,12 @@
             android:hint="请输入姓名"
             android:onTextChanged="@{inputHandler::afterTextChangeCall}" />
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="双向绑定"
+            android:text="@={user.age}" />
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -101,6 +107,12 @@
         <include
             layout="@layout/child_layout"
             bind:child="@{user}" />
+
+        <TextView
+            android:hint="双向绑定内容"
+            android:text="@{@string/welcome(user.age)}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <RelativeLayout
             android:layout_width="wrap_content"

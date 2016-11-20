@@ -40,11 +40,13 @@ public class User extends BaseObservable{
         notifyPropertyChanged(BR.name);
     }
 
+    @Bindable
     public String getAge() {
         return age;
     }
 
     public void setAge(String age) {
         this.age = age;
+        notifyPropertyChanged(BR.age);
     }
 }
