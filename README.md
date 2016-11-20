@@ -211,7 +211,7 @@ Button通过lambda表达式引用:
     android:textSize="18sp"
     android:visibility="@{user.adult ? View.VISIBLE : View.GONE}" />
 以上使用到了三元运算符表达式。
-表达式中支持的操作符有：<br />
+表达式中支持的操作符有：
        名称    |     符号
 ---------------|--------------
 数字运算符     | + - / * %
