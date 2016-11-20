@@ -211,21 +211,21 @@ Button通过lambda表达式引用:
     android:textSize="18sp"
     android:visibility="@{user.adult ? View.VISIBLE : View.GONE}" />
 以上使用到了三元运算符表达式。
-表达式中支持的操作符有：
-| 数字运算符 | + - / * % |
-| 字符串连接符	| + |
-| 逻辑运算符 | 	&& || |
-| 二进制位操作符 | 	& | ^ |
-| 一元运算符 | 	+ - ! ~ |
-| 位移操作符 | 	 >> >>> << |
-| 比较运算符 | 	 == > < >= <= |
-| 实例运算符 | 	instanceof |
-| 集合操作 | 	Grouping () |
-| 实例强制转换 | 	Cast |
-| 方法调用 | 	Method calls |
-| 属性访问 | 	Field access |
-| 数组访问 | 	Array access [] |
-| 三元运算符 | 	?: |
+表达式中支持的操作符有：<br />
+| 数字运算符     | + - / * %    |
+| 字符串连接符   | +            |
+| 逻辑运算符     | 	&& ||       |
+| 二进制位操作符 | 	& | ^       |
+| 一元运算符     | 	+ - ! ~     |
+| 位移操作符     | 	>> >>> <<   |
+| 比较运算符     | == > < >= <= |
+| 实例运算符     | 	instanceof  |
+| 集合操作       | 	Grouping()  |
+| 实例强制转换   |   	Cast    |
+| 方法调用       | Method calls |
+| 属性访问       | Field access |
+| 数组访问       | Array access |
+| 三元运算符     |  	?:      |<br />
 同时要注意，表达式中不支持的有：This 、new、super。
 <br />【高级绑定——双向绑定】
 双向绑定指的是，在某处改变了属性的值，其他用到这个属性值的地方，也会同步更新。双向绑定的符号是 @=，如下：
@@ -274,7 +274,7 @@ public void onBindViewHolder(DataBindingViewHolder holder, int position) {
     holder.getBinding().executePendingBindings();
 }
 说明：onCreateViewHolder中，通过DataBindingUtil.inflate指定需要绑定的xml布局。在onBindViewHolder中，通过setVariable绑定数据到动态变量，并通过调用executePendingBindings来强制实时更新UI。
-<br />【总结】
+<br />【总结】<br />
 DataBinding带来便利的同时，如果在xml过度使用DataBinding，会降低xml的可读性。同时需要注意表达式不要过于复杂，分清xml和Java的分界。
 本文对DataBinding的内容进行了取舍，有些特性没有讲解到，如自定义属性、表达式连、动画等。感兴趣的朋友们，请自行查阅资料学习（建议参考官方开发者文档进行学习！）
 
