@@ -212,6 +212,7 @@ Button通过lambda表达式引用:
     android:visibility="@{user.adult ? View.VISIBLE : View.GONE}" />
 以上使用到了三元运算符表达式。
 表达式中支持的操作符有：<br />
+|                |              |
 | -------------  |:------------:|
 | 数字运算符     | + - / * %    |
 | 字符串连接符   | +            |
@@ -227,11 +228,6 @@ Button通过lambda表达式引用:
 | 属性访问       | Field access |
 | 数组访问       | Array access |
 | 三元运算符     |  	?:      |<br />
-
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |<br />
 
 同时要注意，表达式中不支持的有：This 、new、super。
 <br />【高级绑定——双向绑定】
