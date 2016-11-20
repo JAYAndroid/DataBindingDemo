@@ -228,7 +228,7 @@ Button通过lambda表达式引用:
 方法调用 | Method calls
 属性访问 | Field access
 数组访问 | Array access []
-三元运算符 | baz
+三元运算符 | ?:
 
  <br />同时要注意，表达式中不支持的有：This 、new、super。
 <br />【高级绑定——双向绑定】
