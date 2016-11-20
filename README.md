@@ -228,7 +228,6 @@ Button通过lambda表达式引用:
 | 数组访问       | Array access |
 | 三元运算符     |  	?:      |<br />
 
-|         |            |   |
 | ------------- |:-------------:| -----:|
 | col 3 is      | right-aligned | $1600 |
 | col 2 is      | centered      |   $12 |
